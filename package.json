@@ -1,0 +1,22 @@
+{
+  "name": "ts-nats-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "cluster": "docker-compose up --force-recreate -V",
+    "producer": "node dist/p.js",
+    "consumer": "node dist/c.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "nats": "^2.4.0"
+  }
+}

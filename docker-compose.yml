@@ -1,0 +1,42 @@
+version: '2'
+
+networks:
+  app:
+    driver: bridge
+    name: app
+
+services:
+  nats1:
+    image: nats
+    ports:
+      - 4221:4222
+      - 8222:8222
+    networks:
+      - app
+    volumes:
+      - ./config:/config
+    command:
+      - --name=nats1
+      - -c=/config/nats-server.conf
+  nats2:
+    image: nats
+    ports:
+      - 4222:4222
+    networks:
+      - app
+    volumes:
+      - ./config:/config
+    command:
+      - --name=nats2
+      - -c=/config/nats-server.conf
+  nats3:
+    image: nats
+    ports:
+      - 4223:4222
+    networks:
+      - app
+    volumes:
+      - ./config:/config
+    command:
+      - --name=nats3
+      - -c=/config/nats-server.conf
